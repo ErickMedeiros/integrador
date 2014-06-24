@@ -1,0 +1,37 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<!-- Fig. 19.14: data.html -->
+<!-- Formulário para consulta do Banco de Dados MySQL . -->
+<html xmlns = "http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Consultar Usuário</title>
+      <style type = "text/css">
+         body  { background-color: #F0E68C } 
+         h2    { font-family: arial, sans-serif;
+                 color: blue }
+         input { background-color: blue;
+                 color: yellow;
+                 font-weight: bold }
+      </style>
+   </head>
+   <body>
+      <h2>Consultado o Banco de Bados MySQL.</h2>
+      <form method = "post" action = "usuario_viewer.php">
+        <div>
+            <p>Selecione abaixo:
+               <!-- add a select box containing options --> 
+               <!-- for SELECT query -->
+               <select name = "select">                   
+                  <option selected = "selected">*</option>
+                  <option>ID</option>                     
+                  <option>Nome</option>                  
+                  <option>Email</option>               
+                  <option>Senha</option>                   
+               </select></p>
+            <input type = "submit" value = "Enviar consulta" />
+         </div>
+      </form>
+   </body>
+</html>
