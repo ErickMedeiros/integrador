@@ -33,5 +33,6 @@ echo "Olá, você está logado(a) no Sistema , " . $_SESSION['usuarioNome'];
 <h3 align="center"><strong><a href="cadastrar_fornecedor.php">Cadastrar Fornecedor</a></strong></h3>
 <h3 align="center"><strong><a href="editar_fornecedor.php">Editar Fornecedor</a></strong></h3>
 <h3 align="center"><strong><a href="excluir_fornecedor.php">Excluir Fornecedor</a></strong></h3>
+<h3 align="center"><strong><a href="logado.php">Página Principal</a></strong></h3>
 </body>
     </html>
