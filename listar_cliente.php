@@ -52,5 +52,6 @@
         }
         ?>
             </head>
+            <a href="cliente.php">Voltar</a>
     </body>
 </html>

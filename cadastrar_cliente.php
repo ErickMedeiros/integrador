@@ -52,6 +52,7 @@
             $inserir = mysql_query("INSERT INTO clientes (nome, telefone, endereco, cep) VALUES ('$nome', '$telefone','$endereco','$cep')");
         }
         ?>
+        <a href="listar_cliente.php">Voltar</a>
     </body>
 </html>
 

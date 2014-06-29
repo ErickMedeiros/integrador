@@ -20,22 +20,35 @@
         </style>
     </head>
     <?php
-    
     include ("conexao.php");
-    
-    if ( isset( $_GET['id_clientes'] ) ) { $id = $_GET['id_clientes']; }
 
-    $sql = mysql_query("SELECT * FROM clientes WHERE id_clientes='$id'");
+    if (!isset($_GET["id_clientes"])) {
+        die("Código do cliente não fornecido.");
+    }
 
-    $exibe = mysql_fetch_assoc($sql);
+    $id = $_GET["id_clientes"];
+    session_start();
+    $_SESSION["id_clientes"] = $id;
+    mysql_set_charset(utf8, $conexao);
+    $sql = "SELECT * FROM clientes WHERE id_clientes = " . mysql_real_escape_string($id);
+    $clientes = mysql_query($sql);
+    if (mysql_num_rows($clientes) == 0) {
+        die("Registro não encontrado.");
+    }
+     
+    $exibe = mysql_fetch_assoc($clientes);
+    $nome = $exibe["nome"];
+    $telefone = $exibe["telefone"];
+    $endereco = $exibe["endereco"];
+    $cep = $exibe["cep"];
     ?>
     <body>
         <h2>Editando Clientes do Banco</h2>
         <form action="" method="post" enctype="multipart/form-data">
-            Nome:</br><input type="text" name="nome" value="<?php echo $exibe ["nome"]; ?>" /><br/>
-            Telefone:</br><input type="text" name="telefone" value="<?php echo $exibe ["telefone"]; ?>" /><br/>
-            Endereco:</br><input type="text" name="endereco" value="<?php echo $exibe ["endereco"]; ?>" /><br/>
-            CEP:</br><input type="text" name="cep" value="<?php echo $exibe ["cep"]; ?>" /><br/>
+            Nome:</br><input type="text" name="nome" value="<?php echo $nome; ?>" /><br/>
+            Telefone:</br><input type="text" name="telefone" value="<?php echo $telefone; ?>" /><br/>
+            Endereco:</br><input type="text" name="endereco" value="<?php echo $endereco; ?>" /><br/>
+            CEP:</br><input type="text" name="cep" value="<?php echo $cep; ?>" /><br/>
             <br>
                 <input name="" type="submit" value="Editar"/>    
         </form>

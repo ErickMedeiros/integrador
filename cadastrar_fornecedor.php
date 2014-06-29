@@ -52,6 +52,7 @@
             $inserir = mysql_query("INSERT INTO fornecedor (nome_fornecedor, cnpj, telefone, email) VALUES ('$nomefornecedor', '$cnpj','$telefone','$email')");
         }
         ?>
+        <a href="listar_fornecedor.php">Voltar</a>
     </body>
 </html>
 
